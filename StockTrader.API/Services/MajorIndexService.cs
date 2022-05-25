@@ -26,7 +26,7 @@ namespace StockTrader.API.Services
                 
                 string regularMarketPrice = JObject.Parse(jsonRaw)["quoteResponse"]["result"][0]["regularMarketPrice"].ToString();
                 string regularMarketChange = JObject.Parse(jsonRaw)["quoteResponse"]["result"][0]["regularMarketChange"].ToString();
-                string fullExchangeName = JObject.Parse(jsonRaw)["quoteResponse"]["result"][0]["fullExchangeName"].ToString();
+                string fullExchangeName = JObject.Parse(jsonRaw)["quoteResponse"]["result"][0]["shortName"].ToString();
                 
                 MajorIndex index = new MajorIndex();
                 index.Name = fullExchangeName;
