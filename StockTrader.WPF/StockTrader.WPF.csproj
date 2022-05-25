@@ -12,8 +12,4 @@
     <ProjectReference Include="..\StockTrader.EntityFramework\StockTrader.EntityFramework.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>

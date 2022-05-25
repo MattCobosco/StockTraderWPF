@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StockTrader.WPF.Controls"
-             
+             xmlns:nav="clr-namespace:StockTrader.WPF.State.Navigators"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource NavButton}" TargetType="RadioButton" />
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -18,17 +22,14 @@
                 Padding="10"
                 MaxWidth="1000"
                 FontSize="24"
-                Foreground="{StaticResource PrimaryBlueBrush}"
-                Text="StockTrader" />
+                Foreground="{StaticResource PrimaryWhiteBrush}"
+                Text="Stock Trader" />
         </Grid>
 
         <Grid Grid.Row="1"
               Background="{StaticResource PrimaryBlueBrush}"
               RenderOptions.EdgeMode="Aliased">
             <Grid MaxWidth="1000">
-                <!--<Grid.Resources>
-                    <Style BasedOn="{StaticResource NavButton}" TargetType="RadioButton" />
-                </Grid.Resources>-->
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -37,16 +38,19 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <RadioButton Grid.Column="1"  
-                         Content="Home" />
-                <RadioButton Grid.Column="2"  
-                         Content="Portfolio" />
+                <RadioButton Grid.Column="0" 
+                             Command="{Binding UpdateCurrentViewModelCommand}"
+                             CommandParameter="{x:Static nav:ViewType.Home}"
+                             Content="Home" />
+                <RadioButton Grid.Column="1"
+                             Command="{Binding UpdateCurrentViewModelCommand}"
+                             CommandParameter="{x:Static nav:ViewType.Portfolio}"
+                             Content="Portfolio" />
+                <RadioButton Grid.Column="2"
+                             Content="Buy" />
                 <RadioButton Grid.Column="3" 
-                         Content="Buy" />
-                <RadioButton Grid.Column="4" 
-                         Content="Sell" />
+                             Content="Sell" />
             </Grid>
         </Grid>
-
     </Grid>
 </UserControl>

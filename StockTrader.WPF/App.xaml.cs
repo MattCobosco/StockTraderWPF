@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockTrader.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,6 +17,7 @@ namespace StockTrader.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             Window window = new MainWindow();
+            window.DataContext = new MainViewModel();
             window.Show();
 
             base.OnStartup(e);
