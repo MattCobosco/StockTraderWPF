@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace StockTrader.Domain.Models
 {
-    internal class Stock
+    public class Stock
     {
+        public string Symbol { get; set; }
+        public double PricePerShare { get; set; }
     }
 }
