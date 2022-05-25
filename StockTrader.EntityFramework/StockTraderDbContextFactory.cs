@@ -5,7 +5,7 @@ namespace StockTrader.EntityFramework
 {
     public class StockTraderDbContextFactory : IDesignTimeDbContextFactory<StockTraderDbContext>
     {
-        public StockTraderDbContext CreateDbContext(string[] args)
+        public StockTraderDbContext CreateDbContext(string[] args = null)
         {
             DbContextOptionsBuilder<StockTraderDbContext> options = new DbContextOptionsBuilder<StockTraderDbContext>();
 
