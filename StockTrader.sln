@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.Domain", "Stock
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.EntityFramework", "StockTrader.EntityFramework\StockTrader.EntityFramework.csproj", "{D7C48326-4154-4B9A-A644-9BF2368C1127}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{7B42FDF2-3097-4741-92F1-0A00EAA31573}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.WPF", "StockTrader.WPF\StockTrader.WPF.csproj", "{10E6B0A7-354F-4C9A-AF15-92BD19AE1B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.API", "StockTrader.API\StockTrader.API.csproj", "{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.YahooFinanceAPI", "StockTrader.API\StockTrader.YahooFinanceAPI.csproj", "{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +25,6 @@ Global
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10E6B0A7-354F-4C9A-AF15-92BD19AE1B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10E6B0A7-354F-4C9A-AF15-92BD19AE1B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E6B0A7-354F-4C9A-AF15-92BD19AE1B37}.Release|Any CPU.ActiveCfg = Release|Any CPU

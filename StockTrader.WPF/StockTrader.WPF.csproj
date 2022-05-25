@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StockTrader.API\StockTrader.YahooFinanceAPI.csproj" />
     <ProjectReference Include="..\StockTrader.Domain\StockTrader.Domain.csproj" />
     <ProjectReference Include="..\StockTrader.EntityFramework\StockTrader.EntityFramework.csproj" />
   </ItemGroup>
