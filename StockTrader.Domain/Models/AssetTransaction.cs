@@ -7,5 +7,6 @@
         public bool IsBuy { get; set; }
         public Stock Stock { get; set; }
         public int ShareAmount { get; set; }
+        public DateTime DateProcessed { get; set; }
     }
 }
