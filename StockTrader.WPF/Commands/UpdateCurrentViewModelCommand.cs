@@ -1,4 +1,5 @@
-﻿using StockTrader.WPF.State.Navigators;
+﻿using StockTrader.API.Services;
+using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
 using System;
 using System.Windows.Input;
@@ -30,7 +31,7 @@ namespace StockTrader.WPF.Commands
                 switch (viewType)
                 {
                     case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel();
+                        _navigator.CurrentViewModel = new HomeViewModel(MajorIndexViewModel.LoadMajorIndexViewModel(new MajorIndexService()));
                         break;
                     case ViewType.Portfolio:
                         _navigator.CurrentViewModel = new PortfolioViewModel();
