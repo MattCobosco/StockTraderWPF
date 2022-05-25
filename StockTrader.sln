@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.Domain", "Stock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.EntityFramework", "StockTrader.EntityFramework\StockTrader.EntityFramework.csproj", "{D7C48326-4154-4B9A-A644-9BF2368C1127}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{7B42FDF2-3097-4741-92F1-0A00EAA31573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C48326-4154-4B9A-A644-9BF2368C1127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B42FDF2-3097-4741-92F1-0A00EAA31573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
