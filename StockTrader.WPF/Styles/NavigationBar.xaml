@@ -10,7 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Grid x:Name="gridMain" Background="{TemplateBinding Background}">
-                        <TextBlock
+                        <TextBlock x:Name="gridMainTextBlock"
                             Text="{TemplateBinding Content}"
                             Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
@@ -19,8 +19,12 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter
                                 Property="Background"
-                                Value="{StaticResource PrimaryBlueBrush}"
+                                Value="{StaticResource PrimaryWhiteBrush}"
                                 TargetName="gridMain" />
+                            <Setter
+                                Property="Foreground"
+                                Value="{StaticResource PrimaryBlueBrush}"
+                                TargetName="gridMainTextBlock" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
