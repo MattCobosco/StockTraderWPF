@@ -12,8 +12,8 @@ using StockTrader.EntityFramework;
 namespace StockTrader.EntityFramework.Migrations
 {
     [DbContext(typeof(StockTraderDbContext))]
-    [Migration("20220525105824_ModelEnhancement")]
-    partial class ModelEnhancement
+    [Migration("20220525111324_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

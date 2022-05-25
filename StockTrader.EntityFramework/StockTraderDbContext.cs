@@ -9,6 +9,8 @@ namespace StockTrader.EntityFramework
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AssetTransaction> AssetTransactions { get; set; }
 
+        public StockTraderDbContext(DbContextOptions options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AssetTransaction>()
@@ -16,12 +18,5 @@ namespace StockTrader.EntityFramework
 
             base.OnModelCreating(modelBuilder);
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(local); Database=StockTraderDB; Trusted_Connection=True;");
-
-            base.OnConfiguring(optionsBuilder);
-        } 
     }
 }
