@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StockTrader.WPF.ViewModels
 {
-    public class MajorIndexViewModel : ViewModelBase
+    public class MajorIndexListingViewModel : ViewModelBase
     {
         private readonly IMajorIndexService _majorIndexService;
 
@@ -54,14 +54,14 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
-        public MajorIndexViewModel(IMajorIndexService majorIndexService)
+        public MajorIndexListingViewModel(IMajorIndexService majorIndexService)
         {
             _majorIndexService = majorIndexService;
         }
 
-        public static MajorIndexViewModel LoadMajorIndexViewModel(IMajorIndexService majorIndexService)
+        public static MajorIndexListingViewModel LoadMajorIndexViewModel(IMajorIndexService majorIndexService)
         {
-            MajorIndexViewModel majorIndexViewModel = new MajorIndexViewModel(majorIndexService);
+            MajorIndexListingViewModel majorIndexViewModel = new MajorIndexListingViewModel(majorIndexService);
             majorIndexViewModel.LoadMajorIndexes();
             return majorIndexViewModel;
         }
