@@ -8,13 +8,51 @@ using System.Threading.Tasks;
 
 namespace StockTrader.WPF.ViewModels
 {
-    public class MajorIndexViewModel
+    public class MajorIndexViewModel : ViewModelBase
     {
         private readonly IMajorIndexService _majorIndexService;
 
-        public MajorIndex DowJones { get; set; }
-        public MajorIndex NASDAQ { get; set; }
-        public MajorIndex SP500 { get; set; }
+        private MajorIndex _dowJones;
+        public MajorIndex DowJones 
+        {
+            get 
+            {
+                return _dowJones;
+            }
+            set
+            {
+                _dowJones = value;
+                OnPropertyChanged(nameof(DowJones));
+            }
+        }
+
+        private MajorIndex _nASDAQ;
+        public MajorIndex NASDAQ 
+        {
+            get
+            {
+                return _nASDAQ;
+            }    
+            set
+            {
+                _nASDAQ = value;
+                OnPropertyChanged(nameof(NASDAQ));
+            }
+        }
+
+        private MajorIndex _sP500;
+        public MajorIndex SP500 
+        { 
+            get
+            {
+                return _sP500;
+            }
+            set
+            {
+                _sP500 = value;
+                OnPropertyChanged(nameof(SP500));
+            }
+        }
 
         public MajorIndexViewModel(IMajorIndexService majorIndexService)
         {
