@@ -51,8 +51,7 @@ namespace StockTrader.API.Services
                     return "%5EGSPC";
                     break;
                 default:
-                    return "%5EDJI";
-                    break;
+                    throw new Exception("MajorIndexType does not have this suffix defined!");
             }
         }
     }
