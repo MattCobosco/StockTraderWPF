@@ -25,10 +25,11 @@ namespace StockTrader.API.Services
 
                 string regularMarketPrice = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["regularMarketPrice"].ToString();
                 string regularMarketChange = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["regularMarketChange"].ToString();
-                string fullExchangeName = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["shortName"].ToString();
+                string shortName = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["shortName"].ToString();
                 
                 MajorIndex index = new MajorIndex();
-                index.Name = fullExchangeName;
+                
+                index.Name = GetIndexName(indexType);
                 index.Price = Convert.ToDouble(regularMarketPrice);
                 index.Change = Convert.ToDouble(regularMarketChange);
                 index.Type = indexType;
@@ -43,13 +44,25 @@ namespace StockTrader.API.Services
             {
                 case MajorIndexType.DowJones:
                     return "%5EDJI";
-                    break;
                 case MajorIndexType.NASDAQ:
                     return "%5EIXIC";
-                    break;
                 case MajorIndexType.SP500:
                     return "%5EGSPC";
-                    break;
+                default:
+                    throw new Exception("MajorIndexType does not have this suffix defined!");
+            }
+        }
+
+        private string GetIndexName(MajorIndexType indexType)
+        {
+            switch (indexType)
+            {
+                case MajorIndexType.DowJones:
+                    return "Dow Jones";
+                case MajorIndexType.NASDAQ:
+                    return "NASDAQ";
+                case MajorIndexType.SP500:
+                    return "S&P 500";
                 default:
                     throw new Exception("MajorIndexType does not have this suffix defined!");
             }
