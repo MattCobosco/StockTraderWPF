@@ -8,11 +8,11 @@ namespace StockTrader.WPF.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        public MajorIndexListingViewModel MajorIndexViewModel { get; set; }
+        public MajorIndexListingViewModel MajorIndexListingViewModel { get; set; }
 
-        public HomeViewModel(MajorIndexListingViewModel majorIndexViewModel)
+        public HomeViewModel(MajorIndexListingViewModel majorIndexListingViewModel)
         {
-            MajorIndexViewModel = majorIndexViewModel;
+            MajorIndexListingViewModel = majorIndexListingViewModel;
         }
     }
 }
