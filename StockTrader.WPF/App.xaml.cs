@@ -23,8 +23,7 @@ namespace StockTrader.WPF
         {
             IServiceProvider serviceProvider = CreateServiceProvider();
 
-            Window window = new MainWindow();
-            window.DataContext = serviceProvider.GetRequiredService<MainViewModel>();
+            Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
 
             base.OnStartup(e);
@@ -47,6 +46,8 @@ namespace StockTrader.WPF
 
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<MainViewModel>();
+
+            services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();
         }
