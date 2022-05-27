@@ -23,6 +23,8 @@ namespace StockTrader.WPF.ViewModels.Factories
                     return _homeViewModelFactory.CreateViewModel();
                 case ViewType.Portfolio:
                     return _portfolioViewModelFactory.CreateViewModel();
+                case ViewType.Buy:
+                    return new BuyViewModel();
                 default:
                     throw new ArgumentException("ViewType does not have the requested ViewModel", "viewType");
             }
