@@ -1,6 +1,7 @@
 ﻿using StockTrader.API.Services;
 using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
+using StockTrader.WPF.ViewModels.Factories;
 using System;
 using System.Windows.Input;
 
@@ -10,11 +11,13 @@ namespace StockTrader.WPF.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        private INavigator _navigator;
+        private readonly INavigator _navigator;
+        private readonly IViewModelAbstractFactory _viewModelFactory;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IViewModelAbstractFactory viewModelFactory)
         {
             _navigator = navigator;
+            _viewModelFactory = viewModelFactory;
         }
 
         public bool CanExecute(object? parameter)
@@ -28,17 +31,7 @@ namespace StockTrader.WPF.Commands
             {
                 ViewType viewType = (ViewType)parameter;
 
-                switch (viewType)
-                {
-                    case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel(MajorIndexListingViewModel.LoadMajorIndexViewModel(new MajorIndexService()));
-                        break;
-                    case ViewType.Portfolio:
-                        _navigator.CurrentViewModel = new PortfolioViewModel();
-                        break;
-                    default:
-                        break;
-                }
+                _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }
     }
