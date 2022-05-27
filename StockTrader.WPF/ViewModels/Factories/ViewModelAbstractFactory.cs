@@ -8,11 +8,16 @@ namespace StockTrader.WPF.ViewModels.Factories
     {
         private IViewModelFactory<HomeViewModel> _homeViewModelFactory;
         private IViewModelFactory<PortfolioViewModel> _portfolioViewModelFactory;
+        private BuyViewModel _buyViewModel;
 
-        public ViewModelAbstractFactory(IViewModelFactory<HomeViewModel> homeViewModelFactory, IViewModelFactory<PortfolioViewModel> portfolioViewModelFactory)
+        public ViewModelAbstractFactory(
+            IViewModelFactory<HomeViewModel> homeViewModelFactory, 
+            IViewModelFactory<PortfolioViewModel> portfolioViewModelFactory,
+            BuyViewModel buyViewModel)
         {
             _homeViewModelFactory = homeViewModelFactory;
             _portfolioViewModelFactory = portfolioViewModelFactory;
+            _buyViewModel = buyViewModel;
         }
 
         public ViewModelBase CreateViewModel(ViewType viewType)
@@ -24,7 +29,7 @@ namespace StockTrader.WPF.ViewModels.Factories
                 case ViewType.Portfolio:
                     return _portfolioViewModelFactory.CreateViewModel();
                 case ViewType.Buy:
-                    return new BuyViewModel();
+                    return _buyViewModel;
                 default:
                     throw new ArgumentException("ViewType does not have the requested ViewModel", "viewType");
             }

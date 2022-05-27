@@ -46,8 +46,9 @@ namespace StockTrader.WPF
 
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<MainViewModel>();
+            services.AddScoped<BuyViewModel>();
 
-            services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
+            services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();
         }
