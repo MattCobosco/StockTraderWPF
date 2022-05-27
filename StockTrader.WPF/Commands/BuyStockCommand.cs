@@ -36,14 +36,6 @@ namespace StockTrader.WPF.Commands
                 Account account = await _buyStockService.BuyStock(new Account()
                 {
                     Id=1,
-                    AccountHolder = new User()
-                    {
-                        Id = 1,
-                        Email = "bla",
-                        Username = "bla",
-                        Password = "bla",
-                        DateJoined = DateTime.Now,
-                    },
                     Balance = 500,
                     AssetTransactions = new List<AssetTransaction>(),
                 },
