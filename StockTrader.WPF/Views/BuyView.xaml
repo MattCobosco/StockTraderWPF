@@ -6,7 +6,15 @@
              xmlns:local="clr-namespace:StockTrader.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Buy Stocks" />
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
+            <TextBox Width="100" Text="{Binding Symbol, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Margin ="10 0 0 0" Content="Search" Command="{Binding SearchSymbolCommand}" />
+        </WrapPanel>
+
     </Grid>
 </UserControl>
