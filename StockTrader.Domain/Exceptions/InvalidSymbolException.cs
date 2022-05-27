@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StockTrader.Domain.Exceptions
+﻿namespace StockTrader.Domain.Exceptions
 {
     public class InvalidSymbolException : Exception
     {
@@ -22,11 +15,6 @@ namespace StockTrader.Domain.Exceptions
         }
 
         public InvalidSymbolException(string symbol, string? message, Exception? innerException) : base(message, innerException)
-        {
-            Symbol = symbol;
-        }
-
-        protected InvalidSymbolException(string symbol, SerializationInfo info, StreamingContext context) : base(info, context)
         {
             Symbol = symbol;
         }

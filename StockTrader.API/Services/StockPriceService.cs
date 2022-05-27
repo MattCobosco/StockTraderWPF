@@ -1,8 +1,7 @@
 ﻿
 using Newtonsoft.Json.Linq;
-using StockTrader.Domain.Models;
-using StockTrader.Domain.Services;
 using StockTrader.Domain.Exceptions;
+using StockTrader.Domain.Services;
 
 namespace StockTrader.YahooFinanceAPI.Services
 {
@@ -23,7 +22,7 @@ namespace StockTrader.YahooFinanceAPI.Services
                 string regularMarketPrice = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["regularMarketPrice"].ToString();
                 double price = Convert.ToDouble(regularMarketPrice);
 
-                if(price == 0)
+                if (price == 0)
                 {
                     throw new InvalidSymbolException(symbol);
                 }

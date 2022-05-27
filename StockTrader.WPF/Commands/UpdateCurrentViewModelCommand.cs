@@ -24,9 +24,9 @@ namespace StockTrader.WPF.Commands
 
         public void Execute(object? parameter)
         {
-            if(parameter is ViewType)
+            if (parameter is ViewType)
             {
-               ViewType viewType = (ViewType)parameter;
+                ViewType viewType = (ViewType)parameter;
 
                 switch (viewType)
                 {

@@ -1,11 +1,4 @@
-﻿using StockTrader.API.Services;
-using StockTrader.WPF.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StockTrader.WPF.ViewModels;
 using System.Windows;
 
 namespace StockTrader.WPF

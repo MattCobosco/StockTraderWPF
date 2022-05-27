@@ -1,10 +1,5 @@
 ﻿using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockTrader.WPF.ViewModels
 {
@@ -13,9 +8,9 @@ namespace StockTrader.WPF.ViewModels
         private readonly IMajorIndexService _majorIndexService;
 
         private MajorIndex _dowJones;
-        public MajorIndex DowJones 
+        public MajorIndex DowJones
         {
-            get 
+            get
             {
                 return _dowJones;
             }
@@ -27,12 +22,12 @@ namespace StockTrader.WPF.ViewModels
         }
 
         private MajorIndex _nASDAQ;
-        public MajorIndex NASDAQ 
+        public MajorIndex NASDAQ
         {
             get
             {
                 return _nASDAQ;
-            }    
+            }
             set
             {
                 _nASDAQ = value;
@@ -41,8 +36,8 @@ namespace StockTrader.WPF.ViewModels
         }
 
         private MajorIndex _sP500;
-        public MajorIndex SP500 
-        { 
+        public MajorIndex SP500
+        {
             get
             {
                 return _sP500;

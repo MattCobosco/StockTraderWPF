@@ -4,6 +4,6 @@ namespace StockTrader.Domain.Services
 {
     public interface IMajorIndexService
     {
-        Task<MajorIndex> GetMajorIndex(MajorIndexType indexType); 
+        Task<MajorIndex> GetMajorIndex(MajorIndexType indexType);
     }
 }
