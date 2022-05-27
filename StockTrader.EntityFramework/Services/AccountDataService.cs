@@ -1,12 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockTrader.EntityFramework.Services
 {
@@ -46,7 +40,7 @@ namespace StockTrader.EntityFramework.Services
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
-                Account entity = await context.Accounts.Include(a=>a.AssetTransactions).FirstOrDefaultAsync((e) => e.Id == id);
+                Account entity = await context.Accounts.Include(a => a.AssetTransactions).FirstOrDefaultAsync((e) => e.Id == id);
 
                 return entity;
             }
