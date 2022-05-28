@@ -4,7 +4,7 @@ using StockTrader.Domain.Services;
 
 namespace StockTrader.EntityFramework.Services
 {
-    public class AccountDataService : IDataService<Account>
+    public class AccountDataService : IAccountService
     {
         private readonly StockTraderDbContextFactory _contextFactory;
 
@@ -17,7 +17,9 @@ namespace StockTrader.EntityFramework.Services
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
-                var createdEntity = await context.Set<Account>().AddAsync(entity);
+                var createdEntity = await context.Set<Account>()
+                    .AddAsync(entity);
+
                 await context.SaveChangesAsync();
 
                 return createdEntity.Entity;
@@ -28,7 +30,9 @@ namespace StockTrader.EntityFramework.Services
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
-                Account entity = await context.Set<Account>().FirstOrDefaultAsync((e) => e.Id == id);
+                Account entity = await context.Set<Account>()
+                    .FirstOrDefaultAsync((a) => a.Id == id);
+
                 context.Set<Account>().Remove(entity);
                 await context.SaveChangesAsync();
 
@@ -40,7 +44,10 @@ namespace StockTrader.EntityFramework.Services
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
-                Account entity = await context.Accounts.Include(a => a.AssetTransactions).FirstOrDefaultAsync((e) => e.Id == id);
+                Account entity = await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .Include(a => a.AssetTransactions)
+                    .FirstOrDefaultAsync((a) => a.Id == id);
 
                 return entity;
             }
@@ -50,9 +57,38 @@ namespace StockTrader.EntityFramework.Services
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
-                IEnumerable<Account> entities = await context.Accounts.Include(a => a.AssetTransactions).ToListAsync();
+                IEnumerable<Account> entities = await context.Accounts
+                    .Include(a=>a.AccountHolder)
+                    .Include(a => a.AssetTransactions)
+                    .ToListAsync();
 
                 return entities;
+            }
+        }
+
+        public async Task<Account> GetByEmail(string email)
+        {
+            using (StockTraderDbContext context = _contextFactory.CreateDbContext())
+            {
+                Account entity = await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .Include(a => a.AssetTransactions)
+                    .FirstOrDefaultAsync((a) => a.AccountHolder.Email == email);
+
+                return entity;
+            }
+        }
+
+        public async Task<Account> GetByUsername(string username)
+        {
+            using (StockTraderDbContext context = _contextFactory.CreateDbContext())
+            {
+                Account entity = await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .Include(a => a.AssetTransactions)
+                    .FirstOrDefaultAsync((a) => a.AccountHolder.Username == username);
+
+                return entity;
             }
         }
 
@@ -61,7 +97,9 @@ namespace StockTrader.EntityFramework.Services
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
                 entity.Id = id;
-                context.Set<Account>().Update(entity);
+                context.Set<Account>()
+                    .Update(entity);
+
                 await context.SaveChangesAsync();
 
                 return entity;

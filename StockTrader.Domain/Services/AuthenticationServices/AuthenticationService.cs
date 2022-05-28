@@ -5,16 +5,26 @@ namespace StockTrader.Domain.Services.AuthenticationServices
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly IDataService<Account> _accountService;
+        private readonly IAccountService _accountService;
+        private readonly IPasswordHasher _passwordHasher;
 
-        public AuthenticationService(IDataService<Account> accountService)
+        public AuthenticationService(IAccountService accountService, IPasswordHasher passwordHasher)
         {
             _accountService = accountService;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<Account> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            Account storedAccount = await _accountService.GetByUsername(username);
+            PasswordVerificationResult passwordVerificationResult = _passwordHasher.VerifyHashedPassword(storedAccount.AccountHolder.PasswordHash, password);
+
+            if(passwordVerificationResult != PasswordVerificationResult.Success)
+            {
+                throw new Exception();
+            }
+
+            return storedAccount;
         }
 
         public async Task<bool> Register(string email, string username, string password, string confirmPassword)
@@ -22,8 +32,7 @@ namespace StockTrader.Domain.Services.AuthenticationServices
             if (password != confirmPassword)
                 return false;
 
-            IPasswordHasher hasher = new PasswordHasher();
-            string hashedPassword = hasher.HashPassword(password);
+            string hashedPassword = _passwordHasher.HashPassword(password);
 
             User user = new User()
             {
