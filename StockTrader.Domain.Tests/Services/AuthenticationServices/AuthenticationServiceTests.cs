@@ -71,5 +71,63 @@ namespace StockTrader.Domain.Tests.Services.AuthenticationServices
             string actualUsername = exception.Username;
             Assert.AreEqual(expectedUsername, actualUsername);
         }
+
+        [Test]
+        public async Task Register_WithPasswordsNotMatching_ReturnsPasswordsDoNotMatch()
+        {
+            // ARRANGE
+            string password = "testpassword";
+            string confirmPassword = "confirmtestpassword";
+            RegistrationResult expected = RegistrationResult.PasswordsNoMatch;
+
+            // ACT
+            RegistrationResult actual = await _authenticationService.Register(It.IsAny<string>(), It.IsAny<string>(), password, confirmPassword);
+
+            // ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public async Task Register_WithAlreadyExistingEmail_ReturnsEmailAlreadyExists()
+        {
+            // ARRANGE
+            string email = "test@gmail.com";
+            _mockAccountService.Setup(s => s.GetByEmail(email)).ReturnsAsync(new Account());
+            RegistrationResult expected = RegistrationResult.EmailAlreadyExists;
+
+            // ACT
+            RegistrationResult actual = await _authenticationService.Register(email, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
+
+            // ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public async Task Register_WithAlreadyExistingUsername_ReturnsUsernameAlreadyExists()
+        {
+            // ARRANGE
+            string username = "testuser";
+            _mockAccountService.Setup(s => s.GetByUsername(username)).ReturnsAsync(new Account());
+            RegistrationResult expected = RegistrationResult.UsernameAlreadyExists;
+
+            // ACT
+            RegistrationResult actual = await _authenticationService.Register(It.IsAny<string>(), username, It.IsAny<string>(), It.IsAny<string>());
+
+            // ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public async Task Register_WithNonExistingUserAndMatchingPasswords_ReturnsSuccess()
+        {
+            // ARRANGE
+            RegistrationResult expected = RegistrationResult.Success;
+
+            // ACT
+            RegistrationResult actual = await _authenticationService.Register(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
+
+            // ASSERT
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
