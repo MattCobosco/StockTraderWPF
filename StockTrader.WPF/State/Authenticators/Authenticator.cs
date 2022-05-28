@@ -1,14 +1,12 @@
 ﻿using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
+using StockTrader.WPF.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace StockTrader.WPF.State.Authenticators
 {
-    public class Authenticator : IAuthenticator
+    public class Authenticator : ObservableObject, IAuthenticator
     {
         private readonly IAuthenticationService _authenticationService;
 
@@ -17,7 +15,20 @@ namespace StockTrader.WPF.State.Authenticators
             _authenticationService = authenticationService;
         }
 
-        public Account CurrentAccount { get; private set; }
+        private Account _currentAccount;
+        public Account CurrentAccount
+        {
+            get
+            {
+                return _currentAccount;
+            }
+            private set
+            {
+                _currentAccount = value;
+                OnPropertyChanged(nameof(CurrentAccount));
+                OnPropertyChanged(nameof(IsLoggedIn));
+            }
+        }
 
         public bool IsLoggedIn => CurrentAccount != null;
 
