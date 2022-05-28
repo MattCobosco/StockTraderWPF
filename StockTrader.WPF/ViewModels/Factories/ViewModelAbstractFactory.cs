@@ -7,15 +7,18 @@ namespace StockTrader.WPF.ViewModels.Factories
     {
         private IViewModelFactory<HomeViewModel> _homeViewModelFactory;
         private IViewModelFactory<PortfolioViewModel> _portfolioViewModelFactory;
+        private IViewModelFactory<LoginViewModel> _loginViewModelFactory;
         private BuyViewModel _buyViewModel;
 
         public ViewModelAbstractFactory(
             IViewModelFactory<HomeViewModel> homeViewModelFactory,
             IViewModelFactory<PortfolioViewModel> portfolioViewModelFactory,
+            IViewModelFactory<LoginViewModel> loginViewModelFactory,
             BuyViewModel buyViewModel)
         {
             _homeViewModelFactory = homeViewModelFactory;
             _portfolioViewModelFactory = portfolioViewModelFactory;
+            _loginViewModelFactory = loginViewModelFactory;
             _buyViewModel = buyViewModel;
         }
 
@@ -23,6 +26,8 @@ namespace StockTrader.WPF.ViewModels.Factories
         {
             switch (viewType)
             {
+                case ViewType.Login:
+                    return _loginViewModelFactory.CreateViewModel();
                 case ViewType.Home:
                     return _homeViewModelFactory.CreateViewModel();
                 case ViewType.Portfolio:
