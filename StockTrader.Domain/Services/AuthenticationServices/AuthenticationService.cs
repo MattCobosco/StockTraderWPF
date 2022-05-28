@@ -18,12 +18,14 @@ namespace StockTrader.Domain.Services.AuthenticationServices
         public async Task<Account> Login(string username, string password)
         {
             Account storedAccount = await _accountService.GetByUsername(username);
+
+            if (storedAccount == null)
+                throw new UserNotFoundException(username);
+
             PasswordVerificationResult passwordVerificationResult = _passwordHasher.VerifyHashedPassword(storedAccount.AccountHolder.PasswordHash, password);
 
             if(passwordVerificationResult != PasswordVerificationResult.Success)
-            {
                 throw new InvalidPasswordException(username, password);
-            }
 
             return storedAccount;
         }
