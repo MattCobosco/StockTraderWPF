@@ -59,12 +59,15 @@ namespace StockTrader.Domain.Tests.Services.AuthenticationServices
         [Test]
         public void Login_WithNonExistingUsername_ThrowsInvalidPasswordExceptionForUsername()
         {
+            // ARRANGE
             string expectedUsername = "testuser";
             string password = "testpassword";
             _mockPasswordHasher.Setup(s => s.VerifyHashedPassword(It.IsAny<string>(), password)).Returns(PasswordVerificationResult.Failed);
 
+            // ACT
             UserNotFoundException exception = Assert.ThrowsAsync<UserNotFoundException>(() => _authenticationService.Login(expectedUsername, password));
 
+            // ASSERT
             string actualUsername = exception.Username;
             Assert.AreEqual(expectedUsername, actualUsername);
         }
