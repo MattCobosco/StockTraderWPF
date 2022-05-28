@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\login_background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StockTrader.API\StockTrader.YahooFinanceAPI.csproj" />
     <ProjectReference Include="..\StockTrader.Domain\StockTrader.Domain.csproj" />
     <ProjectReference Include="..\StockTrader.EntityFramework\StockTrader.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\login_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
