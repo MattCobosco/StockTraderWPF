@@ -6,7 +6,7 @@ namespace StockTrader.WPF.State.Authenticators
 {
     public interface IAuthenticator
     {
-        User CurrentUser { get; }
+        Account CurrentAccount { get; }
         bool IsLoggedIn { get; }
 
         Task<RegistrationResult> Register(string email, string username, string password, string confirmPassword);
