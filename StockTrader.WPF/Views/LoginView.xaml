@@ -20,6 +20,9 @@
             Margin="25"
             Padding="50"
             VerticalAlignment="Center">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" Color="Gray" />
+        </Border.Effect>
 
         <Grid Grid.IsSharedSizeScope="True">
 
