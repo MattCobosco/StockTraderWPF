@@ -18,11 +18,14 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Username:" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Password:" />
         <PasswordBox x:Name="pbPassword" Grid.Row="01" Grid.Column="1" />
 
-        <Button Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding LoginCommand}" />
+        <Button Grid.Row="2" Grid.Column="2" 
+                Content="Login" 
+                HorizontalAlignment="Center" 
+                Click="Login_Click" />
     </Grid>
 </UserControl>
