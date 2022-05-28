@@ -11,11 +11,11 @@ namespace StockTrader.WPF.ViewModels
 
         public string Username
         {
-            get 
-            { 
-                return _username; 
+            get
+            {
+                return _username;
             }
-            set 
+            set
             {
                 _username = value;
                 OnPropertyChanged(nameof(Username));
@@ -23,7 +23,7 @@ namespace StockTrader.WPF.ViewModels
         }
 
         public ICommand LoginCommand { get; }
-        
+
         public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
         {
             LoginCommand = new LoginCommand(this, authenticator, renavigator);

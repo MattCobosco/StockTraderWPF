@@ -1,5 +1,4 @@
 ﻿using StockTrader.WPF.ViewModels;
-using System.Windows.Input;
 
 namespace StockTrader.WPF.State.Navigators
 {
