@@ -80,6 +80,7 @@
                         Grid.Column="2" 
                         Content="Login" 
                         Click="Login_Click"
+                        FontSize="16"
                         HorizontalAlignment="Center"
                         IsDefault="True"
                         Margin="10"/>
