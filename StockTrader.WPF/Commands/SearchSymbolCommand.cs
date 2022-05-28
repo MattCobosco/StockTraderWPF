@@ -29,7 +29,7 @@ namespace StockTrader.WPF.Commands
             try
             {
                 double stockPrice = await _stockPriceService.GetStockPrice(_viewModel.Symbol);
-                _viewModel.SearchResultSymbol = _viewModel.Symbol;
+                _viewModel.SearchResultSymbol = _viewModel.Symbol.ToUpper();
                 _viewModel.StockPrice = stockPrice;
             }
             catch (Exception e)
