@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StockTrader.WPF"
          xmlns:controls="clr-namespace:StockTrader.WPF.Controls"
         mc:Ignorable="d"
-        Title="Stock Trader" Height="500" Width="800">
+        Title="Stock Trader" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,7 +23,7 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <controls:NavigationBar DataContext="{Binding Navigator}"/>
+            <controls:NavigationBar />
         </Grid>
         
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">

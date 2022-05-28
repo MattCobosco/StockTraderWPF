@@ -1,5 +1,6 @@
 ﻿using StockTrader.WPF.Commands;
 using StockTrader.WPF.State.Authenticators;
+using StockTrader.WPF.State.Navigators;
 using System.Windows.Input;
 
 namespace StockTrader.WPF.ViewModels
@@ -23,9 +24,9 @@ namespace StockTrader.WPF.ViewModels
 
         public ICommand LoginCommand { get; }
         
-        public LoginViewModel(IAuthenticator authenticator)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
         {
-            LoginCommand = new LoginCommand(this, authenticator);
+            LoginCommand = new LoginCommand(this, authenticator, renavigator);
         }
     }
 }

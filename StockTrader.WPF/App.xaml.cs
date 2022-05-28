@@ -46,18 +46,22 @@ namespace StockTrader.WPF
 
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
-            services.AddSingleton<IViewModelAbstractFactory, ViewModelAbstractFactory>();
+            services.AddSingleton<IRootViewModelFactory, RootViewModelFactory>();
             services.AddSingleton<IViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
             services.AddSingleton<IViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
             services.AddSingleton<IViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
-            services.AddSingleton<IViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
+
+            services.AddSingleton<IViewModelFactory<LoginViewModel>>((services) =>
+                new LoginViewModelFactory(services.GetRequiredService<IAuthenticator>(),
+                new ViewModelFactoryRenavigator<HomeViewModel>(services.GetRequiredService<INavigator>(),
+                services.GetRequiredService<IViewModelFactory<HomeViewModel>>())));
 
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<BuyViewModel>();
 
-            services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
+            services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();
         }
