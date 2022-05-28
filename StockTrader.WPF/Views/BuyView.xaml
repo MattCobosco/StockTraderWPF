@@ -20,7 +20,7 @@
         <WrapPanel Margin ="0 10 0 0" Grid.Row="1">
             <Border BorderBrush="Black" BorderThickness="1" Padding="20">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock HorizontalAlignment="Center" FontSize="32" Text="{Binding Symbol}" />
+                    <TextBlock HorizontalAlignment="Center" FontSize="32" Text="{Binding SearchResultSymbol}" />
                     <TextBlock HorizontalAlignment="Center" Margin ="0 10 0 0" Text="{Binding StockPrice, StringFormat={}{0:C}}" />
                 </StackPanel>
             </Border>

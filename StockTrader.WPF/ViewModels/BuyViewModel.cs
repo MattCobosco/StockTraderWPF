@@ -21,6 +21,20 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
+        private string _searchResultSymbol;
+        public string SearchResultSymbol
+        {
+            get
+            {
+                return _searchResultSymbol;
+            }
+            set
+            {
+                _searchResultSymbol = value;
+                OnPropertyChanged(nameof(SearchResultSymbol));
+            }
+        }
+
 
         private double _stockPrice;
         public double StockPrice
