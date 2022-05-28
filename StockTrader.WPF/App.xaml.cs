@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using StockTrader.API.Services;
 using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
@@ -23,8 +24,6 @@ namespace StockTrader.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             IServiceProvider serviceProvider = CreateServiceProvider();
-            IAuthenticationService authenticationService = serviceProvider.GetRequiredService<IAuthenticationService>();
-            authenticationService.Register("test@gmail.com", "testPerson", "testPassword", "testPassword");
 
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
@@ -39,9 +38,12 @@ namespace StockTrader.WPF
             services.AddSingleton<StockTraderDbContextFactory>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IDataService<Account>, AccountDataService>();
+            services.AddSingleton<IAccountService, AccountDataService>();
             services.AddSingleton<IStockPriceService, StockPriceService>();
             services.AddSingleton<IBuyStockService, BuyStockService>();
             services.AddSingleton<IMajorIndexService, MajorIndexService>();
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
             services.AddSingleton<IViewModelAbstractFactory, ViewModelAbstractFactory>();
             services.AddSingleton<IViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
