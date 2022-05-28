@@ -10,9 +10,9 @@ namespace StockTrader.WPF.Commands
         public event EventHandler CanExecuteChanged;
 
         private readonly INavigator _navigator;
-        private readonly IRootViewModelFactory _viewModelFactory;
+        private readonly IViewModelFactory _viewModelFactory;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator, IRootViewModelFactory viewModelFactory)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IViewModelFactory viewModelFactory)
         {
             _navigator = navigator;
             _viewModelFactory = viewModelFactory;

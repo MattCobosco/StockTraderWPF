@@ -8,13 +8,13 @@ namespace StockTrader.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IRootViewModelFactory _viewModelFactory;
+        private readonly IViewModelFactory _viewModelFactory;
          
         public INavigator Navigator { get; set; }
         public IAuthenticator Authenticator { get; }
         public ICommand UpdateCurrentViewModelCommand { get; }
 
-        public MainViewModel(INavigator navigator, IRootViewModelFactory viewModelFactory, IAuthenticator authenticator)
+        public MainViewModel(INavigator navigator, IViewModelFactory viewModelFactory, IAuthenticator authenticator)
         {
             Navigator = navigator;
             _viewModelFactory = viewModelFactory;

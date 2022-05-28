@@ -1,7 +1,9 @@
-﻿namespace StockTrader.WPF.ViewModels.Factories
+﻿using StockTrader.WPF.State.Navigators;
+
+namespace StockTrader.WPF.ViewModels.Factories
 {
-    public interface IViewModelFactory<T> where T : ViewModelBase
+    public interface IViewModelFactory
     {
-        T CreateViewModel();
+        ViewModelBase CreateViewModel(ViewType viewType);
     }
 }
