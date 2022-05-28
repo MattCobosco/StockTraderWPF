@@ -19,7 +19,7 @@
 
         <Grid Margin ="0 20 0 0" Grid.Row="1" MaxWidth="500">
             <Grid.Style>
-                <Style TargetType="WrapPanel">
+                <Style TargetType="Grid">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding SearchResultSymbol}" Value="">
                             <Setter Property="Visibility" Value="Collapsed" />
