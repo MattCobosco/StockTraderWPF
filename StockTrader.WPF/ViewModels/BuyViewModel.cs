@@ -47,6 +47,7 @@ namespace StockTrader.WPF.ViewModels
             {
                 _stockPrice = value;
                 OnPropertyChanged(nameof(StockPrice));
+                OnPropertyChanged(nameof(TotalPrice));
             }
         }
 
