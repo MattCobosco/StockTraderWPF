@@ -16,6 +16,7 @@
     <!--Base for Text Boxes and Password Boxes -->
     <Style x:Key="TextPasswordBoxBase"  TargetType="Control">
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="3" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Control">
