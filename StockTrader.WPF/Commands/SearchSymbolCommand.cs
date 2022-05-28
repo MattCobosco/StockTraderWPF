@@ -34,7 +34,6 @@ namespace StockTrader.WPF.Commands
             }
             catch (Exception e)
             {
-
                 MessageBox.Show(e.Message);
             }
         }
