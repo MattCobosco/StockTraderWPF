@@ -7,6 +7,7 @@ using StockTrader.Domain.Services.AuthenticationServices;
 using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.EntityFramework;
 using StockTrader.EntityFramework.Services;
+using StockTrader.WPF.State.Authenticators;
 using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
 using StockTrader.WPF.ViewModels.Factories;
@@ -49,8 +50,10 @@ namespace StockTrader.WPF
             services.AddSingleton<IViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
             services.AddSingleton<IViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
             services.AddSingleton<IViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
+            services.AddSingleton<IViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
 
             services.AddScoped<INavigator, Navigator>();
+            services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<BuyViewModel>();
 
