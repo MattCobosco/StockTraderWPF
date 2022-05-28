@@ -77,7 +77,8 @@
                         Grid.Column="2" 
                         Content="Login" 
                         Click="Login_Click"
-                        HorizontalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        IsDefault="True"
                         Margin="10"/>
             </Grid>
         </Grid>
