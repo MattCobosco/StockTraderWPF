@@ -58,7 +58,7 @@ namespace StockTrader.EntityFramework.Services
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
             {
                 IEnumerable<Account> entities = await context.Accounts
-                    .Include(a=>a.AccountHolder)
+                    .Include(a => a.AccountHolder)
                     .Include(a => a.AssetTransactions)
                     .ToListAsync();
 
