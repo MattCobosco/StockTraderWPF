@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using StockTrader.Domain.Exceptions;
 using StockTrader.Domain.Models;
 
 namespace StockTrader.Domain.Services.AuthenticationServices
@@ -21,16 +22,24 @@ namespace StockTrader.Domain.Services.AuthenticationServices
 
             if(passwordVerificationResult != PasswordVerificationResult.Success)
             {
-                throw new Exception();
+                throw new InvalidPasswordException(username, password);
             }
 
             return storedAccount;
         }
 
-        public async Task<bool> Register(string email, string username, string password, string confirmPassword)
+        public async Task<RegistrationResult> Register(string email, string username, string password, string confirmPassword)
         {
             if (password != confirmPassword)
-                return false;
+                return RegistrationResult.PasswordsNoMatch;
+
+            Account accountByEmail = await _accountService.GetByEmail(email);
+            if (accountByEmail != null)
+                return RegistrationResult.EmailAlreadyExists;
+
+            Account accountByUsername = await _accountService.GetByUsername(username);
+            if (accountByUsername != null)
+                return RegistrationResult.UsernameAlreadyExists;
 
             string hashedPassword = _passwordHasher.HashPassword(password);
 
@@ -49,7 +58,7 @@ namespace StockTrader.Domain.Services.AuthenticationServices
 
             await _accountService.Create(account);
 
-            return true;
+            return RegistrationResult.Success;
         }
     }
 }

@@ -2,9 +2,17 @@
 
 namespace StockTrader.Domain.Services
 {
+    public enum RegistrationResult
+    {
+        Success,
+        PasswordsNoMatch,
+        EmailAlreadyExists,
+        UsernameAlreadyExists,
+    }
+
     public interface IAuthenticationService
     {
-        Task<bool> Register(string email, string username, string password, string confirmPassword);
+        Task<RegistrationResult> Register(string email, string username, string password, string confirmPassword);
         Task<Account> Login(string username, string password);
     }
 }
