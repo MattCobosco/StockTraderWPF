@@ -3,14 +3,14 @@ using System;
 
 namespace StockTrader.WPF.ViewModels.Factories
 {
-    public class ViewModelAbstractFactory : IViewModelAbstractFactory
+    public class RootViewModelFactory : IRootViewModelFactory
     {
         private IViewModelFactory<HomeViewModel> _homeViewModelFactory;
         private IViewModelFactory<PortfolioViewModel> _portfolioViewModelFactory;
         private IViewModelFactory<LoginViewModel> _loginViewModelFactory;
         private BuyViewModel _buyViewModel;
 
-        public ViewModelAbstractFactory(
+        public RootViewModelFactory(
             IViewModelFactory<HomeViewModel> homeViewModelFactory,
             IViewModelFactory<PortfolioViewModel> portfolioViewModelFactory,
             IViewModelFactory<LoginViewModel> loginViewModelFactory,

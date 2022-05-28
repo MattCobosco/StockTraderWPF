@@ -2,7 +2,7 @@
 
 namespace StockTrader.WPF.ViewModels.Factories
 {
-    public interface IViewModelAbstractFactory
+    public interface IRootViewModelFactory
     {
         ViewModelBase CreateViewModel(ViewType viewType);
     }
