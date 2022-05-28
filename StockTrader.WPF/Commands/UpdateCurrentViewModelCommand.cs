@@ -1,6 +1,4 @@
-﻿using StockTrader.API.Services;
-using StockTrader.WPF.State.Navigators;
-using StockTrader.WPF.ViewModels;
+﻿using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels.Factories;
 using System;
 using System.Windows.Input;

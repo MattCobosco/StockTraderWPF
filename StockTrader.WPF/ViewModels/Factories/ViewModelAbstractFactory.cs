@@ -1,5 +1,4 @@
-﻿using StockTrader.API.Services;
-using StockTrader.WPF.State.Navigators;
+﻿using StockTrader.WPF.State.Navigators;
 using System;
 
 namespace StockTrader.WPF.ViewModels.Factories
@@ -11,7 +10,7 @@ namespace StockTrader.WPF.ViewModels.Factories
         private BuyViewModel _buyViewModel;
 
         public ViewModelAbstractFactory(
-            IViewModelFactory<HomeViewModel> homeViewModelFactory, 
+            IViewModelFactory<HomeViewModel> homeViewModelFactory,
             IViewModelFactory<PortfolioViewModel> portfolioViewModelFactory,
             BuyViewModel buyViewModel)
         {

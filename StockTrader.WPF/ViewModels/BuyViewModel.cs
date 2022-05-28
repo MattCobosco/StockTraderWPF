@@ -10,11 +10,11 @@ namespace StockTrader.WPF.ViewModels
         private string _symbol;
         public string Symbol
         {
-            get 
-            { 
-                return _symbol; 
+            get
+            {
+                return _symbol;
             }
-            set 
+            set
             {
                 _symbol = value;
                 OnPropertyChanged(nameof(Symbol));

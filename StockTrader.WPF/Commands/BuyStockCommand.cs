@@ -3,9 +3,6 @@ using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -35,7 +32,7 @@ namespace StockTrader.WPF.Commands
             {
                 Account account = await _buyStockService.BuyStock(new Account()
                 {
-                    Id=1,
+                    Id = 1,
                     Balance = 500,
                     AssetTransactions = new List<AssetTransaction>(),
                 },
