@@ -21,7 +21,7 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
-        private string _searchResultSymbol;
+        private string _searchResultSymbol = string.Empty;
         public string SearchResultSymbol
         {
             get
