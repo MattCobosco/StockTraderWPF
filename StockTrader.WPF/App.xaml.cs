@@ -2,6 +2,7 @@
 using StockTrader.API.Services;
 using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
+using StockTrader.Domain.Services.AuthenticationServices;
 using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.EntityFramework;
 using StockTrader.EntityFramework.Services;
@@ -22,6 +23,8 @@ namespace StockTrader.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             IServiceProvider serviceProvider = CreateServiceProvider();
+            IAuthenticationService authenticationService = serviceProvider.GetRequiredService<IAuthenticationService>();
+            authenticationService.Register("test@gmail.com", "testPerson", "testPassword", "testPassword");
 
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
@@ -34,6 +37,7 @@ namespace StockTrader.WPF
             IServiceCollection services = new ServiceCollection();
 
             services.AddSingleton<StockTraderDbContextFactory>();
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IDataService<Account>, AccountDataService>();
             services.AddSingleton<IStockPriceService, StockPriceService>();
             services.AddSingleton<IBuyStockService, BuyStockService>();
