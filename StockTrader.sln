@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.EntityFramework
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.WPF", "StockTrader.WPF\StockTrader.WPF.csproj", "{10E6B0A7-354F-4C9A-AF15-92BD19AE1B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.YahooFinanceAPI", "StockTrader.API\StockTrader.YahooFinanceAPI.csproj", "{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrader.YahooFinanceAPI", "StockTrader.API\StockTrader.YahooFinanceAPI.csproj", "{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrader.Domain.Tests", "StockTrader.Domain.Tests\StockTrader.Domain.Tests.csproj", "{AA5672C9-E693-41C7-B38A-E2F9ECA273D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B2D5BC-94F8-43F8-80BF-4FD9037CE600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5672C9-E693-41C7-B38A-E2F9ECA273D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5672C9-E693-41C7-B38A-E2F9ECA273D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5672C9-E693-41C7-B38A-E2F9ECA273D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5672C9-E693-41C7-B38A-E2F9ECA273D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
