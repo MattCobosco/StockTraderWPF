@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="PasswordBoxMVVM" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StockTrader.API\StockTrader.YahooFinanceAPI.csproj" />
     <ProjectReference Include="..\StockTrader.Domain\StockTrader.Domain.csproj" />
     <ProjectReference Include="..\StockTrader.EntityFramework\StockTrader.EntityFramework.csproj" />

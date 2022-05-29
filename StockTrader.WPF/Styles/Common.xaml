@@ -1,50 +1,56 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--Colors-->
+    <!--  Colors  -->
     <Color x:Key="DarkBackgroundColor">#1E1E2C</Color>
     <Color x:Key="LightBackgroundColor">#3399ff</Color>
     <Color x:Key="PrimaryBlueColor">#0277FA</Color>
     <Color x:Key="PrimaryWhiteColor">#FFFFFF</Color>
 
-    <!--Brushes-->
-    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
-    <SolidColorBrush x:Key="LightBackgroundBrush" Color="{StaticResource LightBackgroundColor}"/>
-    <SolidColorBrush x:Key="PrimaryBlueBrush" Color="{StaticResource PrimaryBlueColor}"/>
-    <SolidColorBrush x:Key="PrimaryWhiteBrush" Color="{StaticResource PrimaryWhiteColor }"/>
-    
-    <!--Base for Text Boxes and Password Boxes -->
-    <Style x:Key="TextPasswordBoxBase"  TargetType="Control">
+    <!--  Brushes  -->
+    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackgroundColor}" />
+    <SolidColorBrush x:Key="LightBackgroundBrush" Color="{StaticResource LightBackgroundColor}" />
+    <SolidColorBrush x:Key="PrimaryBlueBrush" Color="{StaticResource PrimaryBlueColor}" />
+    <SolidColorBrush x:Key="PrimaryWhiteBrush" Color="{StaticResource PrimaryWhiteColor}" />
+
+    <!--  Base for Text Boxes and Password Boxes  -->
+    <Style x:Key="TextPasswordBoxBase" TargetType="Control">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Control">
-                    <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="3">
+                    <Border
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="3">
                         <ScrollViewer x:Name="PART_ContentHost" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!--Text Boxes-->
-    <Style TargetType="TextBox" BasedOn="{StaticResource TextPasswordBoxBase}" />
-    
-    <!--Password Boxes-->
-    <Style TargetType="PasswordBox" BasedOn="{StaticResource TextPasswordBoxBase}" />
 
-    <!--Buttons-->
+    <!--  Text Boxes  -->
+    <Style BasedOn="{StaticResource TextPasswordBoxBase}" TargetType="TextBox" />
+
+    <!--  Password Boxes  -->
+    <Style BasedOn="{StaticResource TextPasswordBoxBase}" TargetType="PasswordBox" />
+
+    <!--  Buttons  -->
     <Style TargetType="Button">
         <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryWhiteBrush}" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Padding" Value="10 5" />
+        <Setter Property="Padding" Value="10,5" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="3" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
+                    <Border
+                        Margin="{TemplateBinding Margin}"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="3">
                         <ContentPresenter />
                     </Border>
                 </ControlTemplate>
