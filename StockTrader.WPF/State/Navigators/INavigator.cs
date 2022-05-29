@@ -1,4 +1,5 @@
 ﻿using StockTrader.WPF.ViewModels;
+using System;
 
 namespace StockTrader.WPF.State.Navigators
 {
@@ -13,5 +14,6 @@ namespace StockTrader.WPF.State.Navigators
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }
+        event Action StateChanged;
     }
 }

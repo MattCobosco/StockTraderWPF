@@ -1,9 +1,10 @@
 ﻿using StockTrader.WPF.Models;
 using StockTrader.WPF.ViewModels;
+using System;
 
 namespace StockTrader.WPF.State.Navigators
 {
-    public class Navigator : ObservableObject, INavigator
+    public class Navigator : INavigator
     {
         private ViewModelBase _currentViewModel { get; set; }
 
@@ -13,8 +14,10 @@ namespace StockTrader.WPF.State.Navigators
             set
             {
                 _currentViewModel = value;
-                OnPropertyChanged(nameof(CurrentViewModel));
+                StateChanged?.Invoke();
             }
         }
+
+        public event Action StateChanged;
     }
 }

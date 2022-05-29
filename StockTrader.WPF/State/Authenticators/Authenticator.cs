@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StockTrader.WPF.State.Authenticators
 {
-    public class Authenticator : ObservableObject, IAuthenticator
+    public class Authenticator : IAuthenticator
     {
         private readonly IAuthenticationService _authenticationService;
         private readonly IAccountStore _accountStore;
@@ -27,12 +27,12 @@ namespace StockTrader.WPF.State.Authenticators
             private set
             {
                 _accountStore.CurrentAccount = value;
-                OnPropertyChanged(nameof(CurrentAccount));
-                OnPropertyChanged(nameof(IsLoggedIn));
+                StateChanged?.Invoke();
             }
         }
 
         public bool IsLoggedIn => CurrentAccount != null;
+        public event Action StateChanged;
 
         public async Task<bool> Login(string username, string password)
         {
