@@ -37,6 +37,8 @@ namespace StockTrader.WPF.Commands
             {
                 Account account = await _buyStockService.BuyStock(_accountStore.CurrentAccount, _buyViewModel.Symbol, _buyViewModel.StockAmountToBuy);
                 _accountStore.CurrentAccount = account;
+
+                MessageBox.Show($"{_buyViewModel.StockAmountToBuy} shares of {_buyViewModel.Symbol} bought successfully.", "Success!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             catch (Exception e)
             {
