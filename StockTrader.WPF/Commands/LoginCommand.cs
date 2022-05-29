@@ -28,7 +28,7 @@ namespace StockTrader.WPF.Commands
 
         public async void Execute(object? parameter)
         {
-            bool success = await _authenticator.Login(_loginViewModel.Username, parameter.ToString());
+            bool success = await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
 
             if (success)
             {

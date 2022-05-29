@@ -8,7 +8,6 @@ namespace StockTrader.WPF.ViewModels
     public class LoginViewModel : ViewModelBase
     {
         private string _username;
-
         public string Username
         {
             get
@@ -22,11 +21,27 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
-        public ICommand LoginCommand { get; }
-
-        public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
+        private string _password;
+        public string Password
         {
-            LoginCommand = new LoginCommand(this, authenticator, renavigator);
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public ICommand LoginCommand { get; }
+        public ICommand ViewRegisterCommand { get; }
+
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator, IRenavigator registerRenavigator)
+        {
+            LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
+            ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
         }
     }
 }
