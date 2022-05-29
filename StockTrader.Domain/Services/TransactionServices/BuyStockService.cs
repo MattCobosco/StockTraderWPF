@@ -16,7 +16,8 @@ namespace StockTrader.Domain.Services.TransactionServices
 
         public async Task<Account> BuyStock(Account buyer, string stockSymbol, int shareAmount)
         {
-            double stockPrice = await _stockPriceService.GetStockPrice(stockSymbol);
+            string stockSymbolToUpper = stockSymbol.ToUpper();
+            double stockPrice = await _stockPriceService.GetStockPrice(stockSymbolToUpper);
             double transactionPrice = shareAmount * stockPrice;
 
             if (stockPrice * shareAmount > buyer.Balance)
@@ -30,7 +31,7 @@ namespace StockTrader.Domain.Services.TransactionServices
                 Stock = new Stock()
                 {
                     PricePerShare = stockPrice,
-                    Symbol = stockSymbol,
+                    Symbol = stockSymbolToUpper,
                 },
                 DateProcessed = DateTime.Now,
                 ShareAmount = shareAmount,
