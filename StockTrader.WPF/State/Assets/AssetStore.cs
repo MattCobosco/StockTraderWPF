@@ -2,9 +2,6 @@
 using StockTrader.WPF.State.Accounts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockTrader.WPF.State.Assets
 {

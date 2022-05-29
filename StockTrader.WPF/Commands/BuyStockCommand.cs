@@ -3,7 +3,6 @@ using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.WPF.State.Accounts;
 using StockTrader.WPF.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 

@@ -1,11 +1,6 @@
 ﻿using StockTrader.WPF.Commands;
 using StockTrader.WPF.State.Authenticators;
 using StockTrader.WPF.State.Navigators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace StockTrader.WPF.ViewModels

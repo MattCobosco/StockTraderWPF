@@ -3,10 +3,6 @@ using StockTrader.WPF.State.Authenticators;
 using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -28,10 +24,10 @@ namespace StockTrader.WPF.Commands
         public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter)
-        { 
-            return true; 
+        {
+            return true;
         }
-        
+
         public async void Execute(object? parameter)
         {
             RegistrationResult result = await _authenticator.Register(_registerViewModel.Email, _registerViewModel.Username, _registerViewModel.Password, _registerViewModel.ConfirmPassword);

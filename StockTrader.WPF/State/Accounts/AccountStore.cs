@@ -7,8 +7,8 @@ namespace StockTrader.WPF.State.Accounts
     {
         private Account _currentAccount;
 
-        public Account CurrentAccount 
-        { 
+        public Account CurrentAccount
+        {
             get
             {
                 return _currentAccount;

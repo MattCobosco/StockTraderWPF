@@ -1,5 +1,4 @@
 ﻿using StockTrader.WPF.State.Assets;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace StockTrader.WPF.ViewModels
