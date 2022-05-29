@@ -7,6 +7,7 @@ using StockTrader.Domain.Services.AuthenticationServices;
 using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.EntityFramework;
 using StockTrader.EntityFramework.Services;
+using StockTrader.WPF.State.Accounts;
 using StockTrader.WPF.State.Authenticators;
 using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
@@ -32,6 +33,7 @@ namespace StockTrader.WPF
             base.OnStartup(e);
         }
 
+        // Dependency Injection Container
         private IServiceProvider CreateServiceProvider()
         {
             IServiceCollection services = new ServiceCollection();
@@ -76,8 +78,9 @@ namespace StockTrader.WPF
                     services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
             });
 
-            services.AddScoped<INavigator, Navigator>();
-            services.AddScoped<IAuthenticator, Authenticator>();
+            services.AddSingleton<INavigator, Navigator>();
+            services.AddSingleton<IAuthenticator, Authenticator>();
+            services.AddSingleton<IAccountStore, AccountStore>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<BuyViewModel>();
 
