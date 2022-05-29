@@ -12,15 +12,15 @@ namespace StockTrader.WPF.ViewModels
     {
         private readonly AssetStore _assetStore;
 
-        private readonly ObservableCollection<StockViewModel> _stocks;
+        private readonly ObservableCollection<StockViewModel> _topStocks;
 
         public double AccountBalance => _assetStore.AccountBalance;
-        public IEnumerable<StockViewModel> Stocks => _stocks;
+        public IEnumerable<StockViewModel> TopStocks => _topStocks;
 
         public AssetSummaryViewModel(AssetStore assetStore)
         {
             _assetStore = assetStore;
-            _stocks = new ObservableCollection<StockViewModel>();
+            _topStocks = new ObservableCollection<StockViewModel>();
 
             _assetStore.StateChanged += AssetStore_StateChanged;
 
@@ -32,12 +32,14 @@ namespace StockTrader.WPF.ViewModels
             IEnumerable<StockViewModel> stockViewModels = _assetStore.AssetTransactions
                 .GroupBy(t => t.Stock.Symbol)
                 .Select(g => new StockViewModel(g.Key, g.Sum(a => a.IsBuy ? a.ShareAmount : -a.ShareAmount)))
-                .Where(a => a.ShareAmount > 0);
+                .Where(a => a.ShareAmount > 0)
+                .OrderByDescending(a => a.ShareAmount)
+                .Take(3);
         
-            _stocks.Clear();
+            _topStocks.Clear();
             foreach(StockViewModel stockViewModel in stockViewModels)
             {
-                _stocks.Add(stockViewModel);
+                _topStocks.Add(stockViewModel);
             }
         }
 
