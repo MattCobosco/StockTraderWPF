@@ -1,6 +1,5 @@
 ﻿using StockTrader.Domain.Models;
 using StockTrader.Domain.Services;
-using StockTrader.WPF.Models;
 using StockTrader.WPF.State.Accounts;
 using System;
 using System.Threading.Tasks;

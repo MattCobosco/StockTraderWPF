@@ -1,5 +1,4 @@
-﻿using StockTrader.WPF.Models;
-using StockTrader.WPF.ViewModels;
+﻿using StockTrader.WPF.ViewModels;
 using System;
 
 namespace StockTrader.WPF.State.Navigators
