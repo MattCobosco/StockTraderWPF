@@ -1,5 +1,6 @@
 ﻿using StockTrader.Domain.Models;
 using StockTrader.Domain.Services.TransactionServices;
+using StockTrader.WPF.State.Accounts;
 using StockTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,32 +13,30 @@ namespace StockTrader.WPF.Commands
     {
         public event EventHandler? CanExecuteChanged;
 
-        private BuyViewModel _buyViewModel;
-        public IBuyStockService _buyStockService;
+        private readonly BuyViewModel _buyViewModel;
+        public readonly IBuyStockService _buyStockService;
+        private readonly IAccountStore _accountStore;
 
-        public BuyStockCommand(BuyViewModel buyViewModel, IBuyStockService buyStockService)
+        public BuyStockCommand(BuyViewModel buyViewModel, IBuyStockService buyStockService, IAccountStore accountStore)
         {
             _buyViewModel = buyViewModel;
             _buyStockService = buyStockService;
+            _accountStore = accountStore;
         }
 
         public bool CanExecute(object? parameter)
         {
             return true;
         }
-
+        /// <summary>
+        /// User BuyStockService to get a new state of the currently logged in account on stock purchase (added transaction, reduced balance) and updates it.
+        /// </summary>
         public async void Execute(object? parameter)
         {
             try
             {
-                Account account = await _buyStockService.BuyStock(new Account()
-                {
-                    Id = 1,
-                    Balance = 500,
-                    AssetTransactions = new List<AssetTransaction>(),
-                },
-                _buyViewModel.Symbol, _buyViewModel.StockAmountToBuy);
-
+                Account account = await _buyStockService.BuyStock(_accountStore.CurrentAccount, _buyViewModel.Symbol, _buyViewModel.StockAmountToBuy);
+                _accountStore.CurrentAccount = account;
             }
             catch (Exception e)
             {
