@@ -12,9 +12,10 @@ namespace StockTrader.WPF.State.Authenticators
         private readonly IAuthenticationService _authenticationService;
         private readonly IAccountStore _accountStore;
 
-        public Authenticator(IAuthenticationService authenticationService)
+        public Authenticator(IAuthenticationService authenticationService, IAccountStore accountStore)
         {
             _authenticationService = authenticationService;
+            _accountStore = accountStore;
         }
 
         public Account CurrentAccount
@@ -31,12 +32,7 @@ namespace StockTrader.WPF.State.Authenticators
             }
         }
 
-        public bool IsLoggedIn => CurrentAccount != null;
-
-        public Authenticator(IAccountStore accountStore)
-        {
-            _accountStore = accountStore;
-        }
+        public bool IsLoggedIn => CurrentAccount != null;double 
 
         public async Task<bool> Login(string username, string password)
         {
