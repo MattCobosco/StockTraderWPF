@@ -19,7 +19,8 @@
             <Button
                 Margin="5,0,0,0"
                 Command="{Binding SearchSymbolCommand}"
-                Content="Search" />
+                Content="Search"
+                IsDefault="True" />
         </WrapPanel>
 
         <Grid
