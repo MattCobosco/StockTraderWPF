@@ -1,6 +1,7 @@
 ﻿using StockTrader.Domain.Services;
 using StockTrader.Domain.Services.TransactionServices;
 using StockTrader.WPF.Commands;
+using StockTrader.WPF.State.Accounts;
 using System.Windows.Input;
 
 namespace StockTrader.WPF.ViewModels
@@ -77,10 +78,10 @@ namespace StockTrader.WPF.ViewModels
         public ICommand SearchSymbolCommand { get; set; }
         public ICommand BuyStockCommand { get; set; }
 
-        public BuyViewModel(IStockPriceService stockPriceService, IBuyStockService buyStockService)
+        public BuyViewModel(IStockPriceService stockPriceService, IBuyStockService buyStockService, IAccountStore accountStore)
         {
             SearchSymbolCommand = new SearchSymbolCommand(this, stockPriceService);
-            BuyStockCommand = new BuyStockCommand(this, buyStockService);
+            BuyStockCommand = new BuyStockCommand(this, buyStockService, accountStore);
         }
     }
 }
