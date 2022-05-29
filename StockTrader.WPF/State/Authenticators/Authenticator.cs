@@ -32,7 +32,7 @@ namespace StockTrader.WPF.State.Authenticators
             }
         }
 
-        public bool IsLoggedIn => CurrentAccount != null;double 
+        public bool IsLoggedIn => CurrentAccount != null;
 
         public async Task<bool> Login(string username, string password)
         {
