@@ -88,13 +88,12 @@
                     HorizontalAlignment="Center"
                     Command="{Binding LoginCommand}"
                     Content="Login"
-                    FontSize="16"
+                    FontSize="24"
                     IsDefault="True" />
 
                 <Button
                     Grid.Row="3"
                     Grid.Column="2"
-                    Margin="5,0"
                     HorizontalAlignment="Center"
                     Background="Transparent"
                     Command="{Binding ViewRegisterCommand}"
