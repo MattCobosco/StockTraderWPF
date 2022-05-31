@@ -45,6 +45,7 @@ namespace StockTrader.WPF
             services.AddSingleton<IAccountService, AccountDataService>();
             services.AddSingleton<IStockPriceService, StockPriceService>();
             services.AddSingleton<IBuyStockService, BuyStockService>();
+            services.AddSingleton<ISellStockService, SellStockService>();
             services.AddSingleton<IMajorIndexService, MajorIndexService>();
 
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
