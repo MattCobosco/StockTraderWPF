@@ -2,7 +2,7 @@
 {
     public class UserNotFoundException : Exception
     {
-        public string Username { get; set; }
+        public string Username { get; }
         public UserNotFoundException(string username)
         {
             Username = username;

@@ -2,8 +2,8 @@
 {
     public class InsufficientFundsException : Exception
     {
-        public double AccountBalance { get; set; }
-        public double RequiredBalance { get; set; }
+        public double AccountBalance { get; }
+        public double RequiredBalance { get; }
 
         public InsufficientFundsException(double accountBalance, double requiredBalance)
         {

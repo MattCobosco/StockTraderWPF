@@ -2,9 +2,9 @@
 {
     public class InsufficientSharesException : Exception
     {
-        public string Symbol { get; set; }
-        public int ActualShares { get; set; }
-        public int RequiredShares { get; set; }
+        public string Symbol { get; }
+        public int ActualShares { get; }
+        public int RequiredShares { get; }
 
         public InsufficientSharesException(string symbol, int actualShares, int requiredShares)
         {

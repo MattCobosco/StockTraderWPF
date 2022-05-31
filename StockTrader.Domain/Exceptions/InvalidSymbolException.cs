@@ -2,7 +2,7 @@
 {
     public class InvalidSymbolException : Exception
     {
-        public string Symbol { get; set; }
+        public string Symbol { get; }
 
         public InvalidSymbolException(string symbol)
         {
