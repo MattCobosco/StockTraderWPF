@@ -34,7 +34,7 @@ namespace StockTrader.WPF.Commands
             }
             catch (InvalidSymbolException ise)
             {
-                _viewModel.ErrorMessage = $"Symbol {ise.Symbol} does not exist,";
+                _viewModel.ErrorMessage = $"Symbol {ise.Symbol} does not exist.";
             }
             catch (Exception)
             {
