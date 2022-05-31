@@ -13,20 +13,23 @@ namespace StockTrader.YahooFinanceAPI.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                string uri = "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=" + symbol;
-                client.DefaultRequestHeaders.Add("accept", "application/json");
-                client.DefaultRequestHeaders.Add("X-API-KEY", _ApiKey);
-                HttpResponseMessage response = await client.GetAsync(uri);
-                string jsonResponse = await response.Content.ReadAsStringAsync();
+                try
+                {                     
+                    string uri = "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=" + symbol;
+                    client.DefaultRequestHeaders.Add("accept", "application/json");
+                    client.DefaultRequestHeaders.Add("X-API-KEY", _ApiKey);
+                    HttpResponseMessage response = await client.GetAsync(uri);
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
 
-                string regularMarketPrice = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["regularMarketPrice"].ToString();
-                double price = Convert.ToDouble(regularMarketPrice);
+                    string regularMarketPrice = JObject.Parse(jsonResponse)["quoteResponse"]["result"][0]["regularMarketPrice"].ToString();
 
-                if (price == 0)
+                    double price = Convert.ToDouble(regularMarketPrice);
+                    return price;
+                }
+                catch (ArgumentOutOfRangeException)
                 {
                     throw new InvalidSymbolException(symbol);
                 }
-                return price;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using StockTrader.Domain.Services;
+﻿using StockTrader.Domain.Exceptions;
+using StockTrader.Domain.Services;
 using StockTrader.WPF.ViewModels;
 using System;
 using System.Windows;
@@ -32,9 +33,13 @@ namespace StockTrader.WPF.Commands
                 _viewModel.SearchResultSymbol = _viewModel.Symbol.ToUpper();
                 _viewModel.StockPrice = stockPrice;
             }
-            catch (Exception e)
+            catch (InvalidSymbolException ise)
             {
-                MessageBox.Show(e.Message);
+                _viewModel.ErrorMessage = $"Symbol {ise.Symbol} does not exist,";
+            }
+            catch (Exception)
+            {
+                _viewModel.ErrorMessage = "Failed to get symbol information.";
             }
         }
     }
