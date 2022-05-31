@@ -74,19 +74,17 @@ namespace StockTrader.WPF.ViewModels
                 return StockAmountToBuy * StockPrice;
             }
         }
-
-        private string _errorMessage;
+        public MessageViewModel ErrorMessageViewModel { get; }
         public string ErrorMessage
         {
-            get
-            {
-                return _errorMessage;
-            }
-            set
-            {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
-            }
+            set => ErrorMessageViewModel.Message = value;
+        }
+        
+        public MessageViewModel StatusMessageViewModel { get; }
+
+        public string StatusMessage
+        {
+            set => StatusMessageViewModel.Message = value;
         }
 
         public ICommand SearchSymbolCommand { get; set; }
@@ -94,8 +92,12 @@ namespace StockTrader.WPF.ViewModels
 
         public BuyViewModel(IStockPriceService stockPriceService, IBuyStockService buyStockService, IAccountStore accountStore)
         {
+            ErrorMessageViewModel = new MessageViewModel();
+            StatusMessageViewModel = new MessageViewModel();
+
             SearchSymbolCommand = new SearchSymbolCommand(this, stockPriceService);
             BuyStockCommand = new BuyStockCommand(this, buyStockService, accountStore);
+            
         }
     }
 }
