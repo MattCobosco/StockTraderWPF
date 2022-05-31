@@ -2,7 +2,6 @@
 using StockTrader.Domain.Services;
 using StockTrader.WPF.ViewModels;
 using System;
-using System.Windows;
 using System.Windows.Input;
 
 namespace StockTrader.WPF.Commands

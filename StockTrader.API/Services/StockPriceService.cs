@@ -14,7 +14,7 @@ namespace StockTrader.YahooFinanceAPI.Services
             using (HttpClient client = new HttpClient())
             {
                 try
-                {                     
+                {
                     string uri = "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=" + symbol;
                     client.DefaultRequestHeaders.Add("accept", "application/json");
                     client.DefaultRequestHeaders.Add("X-API-KEY", _ApiKey);

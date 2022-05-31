@@ -16,7 +16,7 @@ namespace StockTrader.Domain.Services.TransactionServices
             _stockPriceService = stockPriceService;
             _accountService = accountService;
         }
-        
+
         public async Task<Account> BuyStock(Account buyer, string stockSymbol, int shareAmount)
         {
             string stockSymbolToUpper = stockSymbol.ToUpper();

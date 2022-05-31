@@ -79,7 +79,7 @@ namespace StockTrader.WPF.ViewModels
         {
             set => ErrorMessageViewModel.Message = value;
         }
-        
+
         public MessageViewModel StatusMessageViewModel { get; }
 
         public string StatusMessage
@@ -97,7 +97,7 @@ namespace StockTrader.WPF.ViewModels
 
             SearchSymbolCommand = new SearchSymbolCommand(this, stockPriceService);
             BuyStockCommand = new BuyStockCommand(this, buyStockService, accountStore);
-            
+
         }
     }
 }

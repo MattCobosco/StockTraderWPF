@@ -1,5 +1,5 @@
-﻿using StockTrader.Domain.Models;
-using StockTrader.Domain.Exceptions;
+﻿using StockTrader.Domain.Exceptions;
+using StockTrader.Domain.Models;
 
 namespace StockTrader.Domain.Services.TransactionServices
 {

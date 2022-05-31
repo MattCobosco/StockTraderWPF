@@ -27,12 +27,12 @@ namespace StockTrader.WPF.Commands
         {
             return true;
         }
-        
+
         public async void Execute(object? parameter)
         {
             _buyViewModel.StatusMessage = string.Empty;
             _buyViewModel.ErrorMessage = string.Empty;
-                
+
             try
             {
                 string symbol = _buyViewModel.Symbol;
@@ -42,7 +42,7 @@ namespace StockTrader.WPF.Commands
                 Account account = await _buyStockService.BuyStock(_accountStore.CurrentAccount, symbol, stockAmountToBuy);
                 _accountStore.CurrentAccount = account;
 
-               _buyViewModel.StatusMessage = $"{stockAmountToBuy} {shareOrShares} of {symbol} bought successfully.";
+                _buyViewModel.StatusMessage = $"{stockAmountToBuy} {shareOrShares} of {symbol} bought successfully.";
             }
             catch (InsufficientFundsException)
             {
