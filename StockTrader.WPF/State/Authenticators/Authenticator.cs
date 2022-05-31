@@ -33,17 +33,9 @@ namespace StockTrader.WPF.State.Authenticators
         public bool IsLoggedIn => CurrentAccount != null;
         public event Action StateChanged;
 
-        public async Task<bool> Login(string username, string password)
+        public async Task Login(string username, string password)
         {
-            try
-            {
-                CurrentAccount = await _authenticationService.Login(username, password);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            CurrentAccount = await _authenticationService.Login(username, password);
         }
 
         public void Logout()
