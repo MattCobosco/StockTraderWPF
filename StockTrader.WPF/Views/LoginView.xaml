@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:StockTrader.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="500"
+    d:DesignHeight="550"
     d:DesignWidth="800"
     FontSize="24"
     mc:Ignorable="d">
@@ -14,6 +14,10 @@
     <UserControl.Background>
         <ImageBrush ImageSource="/Resources/login_background.png" Stretch="UniformToFill" />
     </UserControl.Background>
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
 
     <Border
         Margin="25"
@@ -84,16 +88,27 @@
                 <Button
                     Grid.Row="2"
                     Grid.Column="2"
-                    Margin="10"
+                    Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     Command="{Binding LoginCommand}"
                     Content="Login"
                     FontSize="24"
                     IsDefault="True" />
 
-                <Button
+                <TextBlock
                     Grid.Row="3"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    DataContext="{Binding ErrorMessageViewModel}"
+                    FontSize="12"
+                    Foreground="DarkRed"
+                    Text="{Binding Message}"
+                    Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                <Button
+                    Grid.Row="4"
                     Grid.Column="2"
+                    Margin="0,20,0,0"
                     HorizontalAlignment="Center"
                     Background="Transparent"
                     Command="{Binding ViewRegisterCommand}"

@@ -1,4 +1,5 @@
-﻿using StockTrader.WPF.State.Authenticators;
+﻿using StockTrader.Domain.Exceptions;
+using StockTrader.WPF.State.Authenticators;
 using StockTrader.WPF.State.Navigators;
 using StockTrader.WPF.ViewModels;
 using System;
@@ -28,11 +29,25 @@ namespace StockTrader.WPF.Commands
 
         public async void Execute(object? parameter)
         {
-            bool success = await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
+            _loginViewModel.ErrorMessage = string.Empty;
 
-            if (success)
+            try
             {
+                await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
+
                 _renavigator.Renavigate();
+            }
+            catch (UserNotFoundException)
+            {
+                _loginViewModel.ErrorMessage = "Username does not exist.";
+            }
+            catch (InvalidPasswordException)
+            {
+                _loginViewModel.ErrorMessage = "Incorrect password.";
+            }
+            catch (Exception)
+            {
+                _loginViewModel.ErrorMessage = "Login failed.";
             }
         }
     }

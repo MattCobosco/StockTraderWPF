@@ -35,11 +35,20 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
+        public MessageViewModel ErrorMessageViewModel { get; }
+        
+        public string ErrorMessage
+        {
+            set => ErrorMessageViewModel.Message = value;
+        }
+
         public ICommand LoginCommand { get; }
         public ICommand ViewRegisterCommand { get; }
 
         public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator, IRenavigator registerRenavigator)
         {
+            ErrorMessageViewModel = new MessageViewModel();
+
             LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
             ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
         }
