@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
@@ -23,8 +24,10 @@
                 IsDefault="True" />
         </WrapPanel>
 
+        <TextBlock Grid.Row="1" Foreground="DarkRed" Text="{Binding ErrorMessage}" />
+
         <Grid
-            Grid.Row="1"
+            Grid.Row="2"
             MaxWidth="500"
             Margin="0,20,0,0">
             <Grid.Style>

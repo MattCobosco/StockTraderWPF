@@ -75,6 +75,20 @@ namespace StockTrader.WPF.ViewModels
             }
         }
 
+        private string _errorMessage;
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
+
         public ICommand SearchSymbolCommand { get; set; }
         public ICommand BuyStockCommand { get; set; }
 
