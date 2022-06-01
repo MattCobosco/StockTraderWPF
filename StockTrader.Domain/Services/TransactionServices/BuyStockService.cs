@@ -19,7 +19,13 @@ namespace StockTrader.Domain.Services.TransactionServices
 
         public async Task<Account> BuyStock(Account buyer, string stockSymbol, int shareAmount)
         {
+            if (string.IsNullOrEmpty(stockSymbol))
+            {
+                throw new InvalidSymbolException(stockSymbol);
+            }
+
             string stockSymbolToUpper = stockSymbol.ToUpper();
+            
             double stockPrice = await _stockPriceService.GetStockPrice(stockSymbolToUpper);
             double transactionPrice = shareAmount * stockPrice;
 
