@@ -8,12 +8,12 @@ namespace StockTrader.WPF.Commands
 {
     public class SearchSymbolCommand : ICommand
     {
-        private BuyViewModel _viewModel;
+        private ISearchSymbolViewModel _viewModel;
         private IStockPriceService _stockPriceService;
 
         public event EventHandler? CanExecuteChanged;
 
-        public SearchSymbolCommand(BuyViewModel viewModel, IStockPriceService stockPriceService)
+        public SearchSymbolCommand(ISearchSymbolViewModel viewModel, IStockPriceService stockPriceService)
         {
             _viewModel = viewModel;
             _stockPriceService = stockPriceService;

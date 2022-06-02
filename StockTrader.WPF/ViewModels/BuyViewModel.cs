@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace StockTrader.WPF.ViewModels
 {
-    public class BuyViewModel : ViewModelBase
+    public class BuyViewModel : ViewModelBase, ISearchSymbolViewModel
     {
         private string _symbol;
         public string Symbol
@@ -74,6 +74,7 @@ namespace StockTrader.WPF.ViewModels
                 return StockAmountToBuy * StockPrice;
             }
         }
+        
         public MessageViewModel ErrorMessageViewModel { get; }
         public string ErrorMessage
         {
