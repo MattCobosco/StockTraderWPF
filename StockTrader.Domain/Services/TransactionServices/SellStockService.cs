@@ -19,21 +19,20 @@ namespace StockTrader.Domain.Services.TransactionServices
 
         public async Task<Account> SellStock(Account seller, string stockSymbol, int shareAmount)
         {
-            string stockSymbolToUpper = stockSymbol.ToUpper();
-            int accountShares = GetAccountSharesForSymbol(seller, stockSymbolToUpper);
+            int accountShares = GetAccountSharesForSymbol(seller, stockSymbol.ToUpper());
             if (accountShares < shareAmount)
             {
                 throw new InsufficientSharesException(stockSymbol, accountShares, shareAmount);
             }
 
-            double stockPrice = await _stockPriceService.GetStockPrice(stockSymbolToUpper);
+            double stockPrice = await _stockPriceService.GetStockPrice(stockSymbol.ToUpper());
 
             seller.AssetTransactions.Add(new AssetTransaction()
             {
                 Account = seller,
                 Stock = new Stock()
                 {
-                    Symbol = stockSymbolToUpper,
+                    Symbol = stockSymbol.ToUpper(),
                     PricePerShare = stockPrice
                 },
                 DateProcessed = DateTime.Now,
