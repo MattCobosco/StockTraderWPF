@@ -64,7 +64,10 @@ namespace StockTrader.WPF.ViewModels
         private int _shareAmountToSell;
         public int ShareAmountToSell
         {
-            get { return _shareAmountToSell; }
+            get 
+            { 
+                return _shareAmountToSell; 
+            }
             set
             {
                 _shareAmountToSell = value;

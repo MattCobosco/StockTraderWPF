@@ -98,7 +98,6 @@ namespace StockTrader.WPF.ViewModels
 
             SearchSymbolCommand = new SearchSymbolCommand(this, stockPriceService);
             BuyStockCommand = new BuyStockCommand(this, buyStockService, accountStore);
-
         }
     }
 }
