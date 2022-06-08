@@ -6,7 +6,7 @@ namespace StockTrader.API.Services
 {
     public class MajorIndexService : IMajorIndexService
     {
-        private string _ApiKey = "TWUN8RpX1i8iki66peGve1IZbjFI2kcSaAyJ3r6i";
+        private string _ApiKey = "fnGeKrHURQ7TU278qNcSN9tJCimuChhu1fe1lNIX";
         public async Task<MajorIndex> GetMajorIndex(MajorIndexType indexType)
         {
             using (HttpClient client = new HttpClient())
