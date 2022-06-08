@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <ComboBox
-            x:Name="cb_Assets"
+            x:Name="cbAssets"
             Grid.Row="0"
             Width="300"
             ItemsSource="{Binding AssetListingViewModel.Assets}"

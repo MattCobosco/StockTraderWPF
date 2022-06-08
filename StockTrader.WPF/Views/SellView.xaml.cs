@@ -37,8 +37,10 @@ namespace StockTrader.WPF.Views
 
         private void cbAssets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(cb_Assets != null)
-            SelectedAssetChangedCommand?.Execute(null);
+            if(cbAssets.SelectedItem != null)
+            {
+                SelectedAssetChangedCommand?.Execute(null);
+            }
         }
     }
 }
