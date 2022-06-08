@@ -40,6 +40,8 @@ namespace StockTrader.WPF.Commands
                 string shareOrShares = stockAmountToSell == 1 ? "share" : "shares";
 
                 Account account = await _sellStockService.SellStock(_accountStore.CurrentAccount, symbol, stockAmountToSell);
+                _accountStore.CurrentAccount = account;
+
                 _sellViewModel.StatusMessage = $"{stockAmountToSell} {shareOrShares} of {symbol} sold successfully.";
             }
             catch(InsufficientSharesException ise)
