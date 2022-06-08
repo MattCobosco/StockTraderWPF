@@ -77,7 +77,7 @@ namespace StockTrader.WPF
 
             services.AddSingleton<CreateViewModel<PortfolioViewModel>>(services =>
             {
-                return () => services.GetRequiredService<PortfolioViewModel>();
+                return () => new PortfolioViewModel(services.GetRequiredService<AssetStore>());
             });
 
             services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
