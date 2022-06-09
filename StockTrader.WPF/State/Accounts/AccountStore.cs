@@ -3,8 +3,12 @@ using System;
 
 namespace StockTrader.WPF.State.Accounts
 {
+    /// <summary>
+    /// Implementation of IAccountStore.
+    /// </summary>
     public class AccountStore : IAccountStore
     {
+        // Account of the current user.
         private Account _currentAccount;
 
         public Account CurrentAccount

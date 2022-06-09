@@ -1,5 +1,8 @@
 ﻿namespace StockTrader.Domain.Exceptions
 {
+    /// <summary>
+    /// Custom exception for when a user provides an invalid stock symbol.
+    /// </summary>
     public class InvalidSymbolException : Exception
     {
         public string Symbol { get; }

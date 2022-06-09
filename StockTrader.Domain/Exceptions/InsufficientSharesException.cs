@@ -1,5 +1,8 @@
 ﻿namespace StockTrader.Domain.Exceptions
 {
+    /// <summary>
+    /// Custom exception for when a user tries to sell more shares than they own.
+    /// </summary>
     public class InsufficientSharesException : Exception
     {
         public string Symbol { get; }

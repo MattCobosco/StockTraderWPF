@@ -4,6 +4,9 @@ using StockTrader.Domain.Services;
 
 namespace StockTrader.EntityFramework.Services
 {
+    /// <summary>
+    /// CRUD for Account. Implementation of IAccountService.
+    /// </summary>
     public class AccountDataService : IAccountService
     {
         private readonly StockTraderDbContextFactory _contextFactory;
@@ -13,6 +16,11 @@ namespace StockTrader.EntityFramework.Services
             _contextFactory = contextFactory;
         }
 
+        /// <summary>
+        /// Create a new account.
+        /// </summary>
+        /// <param name="entity">A new account to be added to a database.</param>
+        /// <returns>Added account.</returns>
         public async Task<Account> Create(Account entity)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -26,6 +34,11 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Delete an account by id.
+        /// </summary>
+        /// <param name="id">Id of the account to be deleted.</param>
+        /// <returns>Boolean representing the deletion success/failure.</returns>
         public async Task<bool> Delete(int id)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -40,6 +53,11 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Get an account by id.
+        /// </summary>
+        /// <param name="id">Id of the account.</param>
+        /// <returns>Account matching the id. Can be null.</returns>
         public async Task<Account> Get(int id)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -53,6 +71,10 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Get all accounts.
+        /// </summary>
+        /// <returns>All accounts in the database.</returns>
         public async Task<IEnumerable<Account>> GetAll()
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -66,6 +88,11 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Get account by email.
+        /// </summary>
+        /// <param name="email">Email of the account.</param>
+        /// <returns>Account matching the email. Can be null.</returns>
         public async Task<Account> GetByEmail(string email)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -79,6 +106,12 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Get account by username.
+        /// </summary>
+        /// <param name="username">Username of the account.</param>
+        /// <returns>
+        /// Account matching the username. Can be null.</returns>
         public async Task<Account> GetByUsername(string username)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())
@@ -92,6 +125,12 @@ namespace StockTrader.EntityFramework.Services
             }
         }
 
+        /// <summary>
+        /// Update an account.
+        /// </summary>
+        /// <param name="id">Id of the account to be updated.</param>
+        /// <param name="entity">Updated account.</param>
+        /// <returns>Updated account.</returns>
         public async Task<Account> Update(int id, Account entity)
         {
             using (StockTraderDbContext context = _contextFactory.CreateDbContext())

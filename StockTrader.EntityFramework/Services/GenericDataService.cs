@@ -4,6 +4,10 @@ using StockTrader.Domain.Services;
 
 namespace StockTrader.EntityFramework.Services
 {
+    /// <summary>
+    /// Generic data service for CRUD operations.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         private readonly StockTraderDbContextFactory _contextFactory;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace StockTrader.WPF.State.Authenticators
 {
+    /// <summary>
+    /// Implementation of IAuthenticator.
+    /// </summary>
     public class Authenticator : IAuthenticator
     {
         private readonly IAuthenticationService _authenticationService;

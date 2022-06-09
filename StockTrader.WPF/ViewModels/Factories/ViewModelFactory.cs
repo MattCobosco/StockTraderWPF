@@ -39,7 +39,7 @@ namespace StockTrader.WPF.ViewModels.Factories
                 case ViewType.Sell:
                     return _createSellViewModel();
                 default:
-                    throw new ArgumentException("ViewType does not have the requested ViewModel", "viewType");
+                    throw new ArgumentException("ViewType does not have the requested ViewModel", nameof(viewType));
             }
         }
     }

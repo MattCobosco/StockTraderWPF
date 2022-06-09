@@ -3,6 +3,9 @@ using System;
 
 namespace StockTrader.WPF.State.Navigators
 {
+    /// <summary>
+    /// ViewTypes available.
+    /// </summary>
     public enum ViewType
     {
         Login,
@@ -14,6 +17,9 @@ namespace StockTrader.WPF.State.Navigators
 
     public interface INavigator
     {
+        /// <summary>
+        /// CurrentViewModel displayed in the app.
+        /// </summary>
         ViewModelBase CurrentViewModel { get; set; }
         event Action StateChanged;
     }

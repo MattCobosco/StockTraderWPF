@@ -5,6 +5,9 @@ using System.Windows.Input;
 
 namespace StockTrader.WPF.Commands
 {
+    /// <summary>
+    /// A command to update current view model, used by the Navigator.
+    /// </summary>
     public class UpdateCurrentViewModelCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
@@ -25,10 +28,13 @@ namespace StockTrader.WPF.Commands
 
         public void Execute(object? parameter)
         {
+            // Check if parameter is ViewType. 
             if (parameter is ViewType)
             {
+                // Convert the parameter to ViewType.
                 ViewType viewType = (ViewType)parameter;
 
+                // Create a view model using ViewModelFactory and set it as the CurrentViewModel in the Navigator.
                 _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }

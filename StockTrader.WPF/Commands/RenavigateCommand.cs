@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace StockTrader.WPF.Commands
 {
+    /// <summary>
+    /// A command to renavigate between Login and Register and Home views, bound to 3 buttons in the UI (login, register x2).
+    /// </summary>
     public class RenavigateCommand : ICommand
     {
         private readonly IRenavigator _renavigator;
@@ -22,6 +25,7 @@ namespace StockTrader.WPF.Commands
 
         public void Execute(object? parameter)
         {
+            // Use Renavigator to navigate to the appropriate view.
             _renavigator.Renavigate();
         }
     }

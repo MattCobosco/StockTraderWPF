@@ -1,5 +1,8 @@
 ﻿namespace StockTrader.Domain.Exceptions
 {
+    /// <summary>
+    /// Custom exception for when a user provides an invalid username.
+    /// </summary>
     public class UserNotFoundException : Exception
     {
         public string Username { get; }

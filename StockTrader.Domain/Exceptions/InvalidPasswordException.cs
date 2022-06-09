@@ -1,5 +1,8 @@
 ﻿namespace StockTrader.Domain.Exceptions
 {
+    /// <summary>
+    /// Custom exception for when a user provides an invalid password.
+    /// </summary>
     public class InvalidPasswordException : Exception
     {
         public string Username { get; }

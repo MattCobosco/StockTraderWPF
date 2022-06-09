@@ -1,5 +1,8 @@
 ﻿namespace StockTrader.Domain.Exceptions
 {
+    /// <summary>
+    /// Custom exception for when a user tries to buy more shares than their balance allows.
+    /// </summary>
     public class InsufficientFundsException : Exception
     {
         public double AccountBalance { get; }

@@ -3,6 +3,9 @@ using System;
 
 namespace StockTrader.WPF.State.Navigators
 {
+    /// <summary>
+    /// Implements INavigator.
+    /// </summary>
     public class Navigator : INavigator
     {
         private ViewModelBase _currentViewModel { get; set; }

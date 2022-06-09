@@ -34,7 +34,7 @@ namespace StockTrader.WPF
             base.OnStartup(e);
         }
 
-        // Dependency Injection Container
+        // Dependency Injection Container => messy, could be cleaner.
         private IServiceProvider CreateServiceProvider()
         {
             IServiceCollection services = new ServiceCollection();
